@@ -348,7 +348,7 @@ namespace CrocoKit_Display {
 namespace CrocoKit_Input {
     export enum enRocker {
         //% blockId="Nostate" block="无"
-        Nostate = 0,
+        NoState = 0,
         //% blockId="Up" block="上"
         Up,
         //% blockId="Down" block="下"
