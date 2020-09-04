@@ -422,7 +422,7 @@ namespace CrocoKit_Input {
     //% weight=99
     //% blockGap=20
     //% color="#808080"
-    export function Rocker(pin1: AnalogPin, pin2: AnalogPin, value: enRocker): boolean {
+    export function Rocker2(pin1: AnalogPin, pin2: AnalogPin, value: enRocker): boolean {
         let x = pins.analogReadPin(pin1);
         let y = pins.analogReadPin(pin2);
         let z = pins.analogReadPin(pin3);
