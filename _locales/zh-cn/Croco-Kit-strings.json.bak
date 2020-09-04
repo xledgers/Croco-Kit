@@ -55,7 +55,6 @@
   
     "CrocoKit_Input.Potentiometer|block": "电位器|引脚 %pin",
     "CrocoKit_Input.Rocker|block": "遥杆|X轴 %pin1|Y轴 %pin2|返回 %value",
-    "CrocoKit_Input.Rocker2|block": "遥杆2|X轴 %pin1|Y轴 %pin2|Z轴 %pin3|返回 %value",
     "CrocoKit_Input.Button|block": "按键|引脚 %pin|返回 %value",
     "CrocoKit_Input.enRocker.NoState|block": "无",
     "CrocoKit_Input.enRocker.Up|block": "上",
