@@ -350,13 +350,13 @@ namespace CrocoKit_Input {
         //% blockId="NoState" block="无"
         NoState = 0,
         //% blockId="Up" block="上"
-        Up,//1
+        Up = 1,//1
         //% blockId="Down" block="下"
-        Down,//2
+        Down= 2,//2
         //% blockId="Left" block="左"
-        Left,//3
+        Left =3,//3
         //% blockId="Right" block="右"
-        Right,//4
+        Right = 4,//4
         //% blockId="UpLeft" block="上左"
         UpLeft = 13,
         //% blockId="UpRight" block="上右"
@@ -429,70 +429,93 @@ namespace CrocoKit_Input {
         
 				if (z == 0) {
            	now_state = enRocker.Press;
-            
-            if (now_state == value)
-            	return true;
-        		else
-            	return false;
+
+            return now_state == value;
+
         }
             	
         let x = pins.analogReadPin(pin1);
         let y = pins.analogReadPin(pin2);
-             
         
+        
+/*        let x_state = enRocker.NoState;
+        let y_state = enRocker.NoState;
+
+
+         
+
         if (x < 100) // 左
         {
+            x_state = enRocker.Left;
+        }
+        else if (x > 700) //右
+        {
+            x_state = enRocker.Right;
+        }
 
-						if (y < 100) //下
+        
+        if (y < 100) //下
+        {
+           y_state = enRocker.Down;
+        }
+        else if (y > 700) //上
+        {
+           y_state = enRocker.Up;
+        }
+        
+        
+        if  (x_state + y_state < 4) {
+        	now_state =  x_state + y_state;
+        } else {
+        	now_state =  x_state *10 + y_state;
+        }
+  */      
+        
+        if (x < 100) // 
+ 
+        {
+
+						if (y < 100) //右
             {
-                now_state = enRocker.DownLeft;
+                now_state = enRocker.UpRight;
             }
-            else if (y > 700) //上
+            else if (y > 700) //左
             {
                 now_state = enRocker.UpLeft;
             }
             else
-            		now_state = enRocker.Left;
+            		now_state = enRocker.Up;
 
         }
-        else if (x > 700) //右
+        else if (x > 700) //下
         {
-						if (y < 100) //下
+						if (y < 100) //右
             {
                 now_state = enRocker.DownRight;
             }
-            else if (y > 700) //上
+            else if (y > 700) //左
             {
-                now_state = enRocker.UpRight;
+                now_state = enRocker.DownLeft;
             }
             else
-            		now_state = enRocker.Right;
+            		now_state = enRocker.Down;
         }
         else  // 左右 100<= x <= 700 
         {
-            if (y < 100) //下
+            if (y <1100) //右
             {
-                now_state = enRocker.Down;
+                now_state = enRocker.Right;
             }
-            else if (y > 700) //上
+            else if (y > 700) //左
             {
-                now_state = enRocker.Up;
+                now_state = enRocker.Left;
             } else {  // 100<= y <= 700
-            	   if (z == 0)
-           						now_state = enRocker.Press;
            			 //OTHERS: enRocker.NoState
           	}
           
         }
         
-        
-        
-        
-
-        if (now_state == value)
-            return true;
-        else
-            return false;
+        return now_state == value;
     }
     
     //% blockId=CrocoKit_Input_Button block="Button|pin %pin|value %value"

@@ -350,13 +350,13 @@ namespace CrocoKit_Input {
         //% blockId="NoState" block="无"
         NoState = 0,
         //% blockId="Up" block="上"
-        Up,//1
+        Up = 1,//1
         //% blockId="Down" block="下"
-        Down,//2
+        Down= 2,//2
         //% blockId="Left" block="左"
-        Left,//3
+        Left =3,//3
         //% blockId="Right" block="右"
-        Right,//4
+        Right = 4,//4
         //% blockId="UpLeft" block="上左"
         UpLeft = 13,
         //% blockId="UpRight" block="上右"
@@ -429,11 +429,9 @@ namespace CrocoKit_Input {
         
 				if (z == 0) {
            	now_state = enRocker.Press;
-            
-            if (now_state == value)
-            	return true;
-        		else
-            	return false;
+
+            return now_state == value;
+
         }
             	
         let x = pins.analogReadPin(pin1);
@@ -504,7 +502,7 @@ namespace CrocoKit_Input {
         }
         else  // 左右 100<= x <= 700 
         {
-            if (y <1100) //右
+            if (y <100) //右
             {
                 now_state = enRocker.Right;
             }
@@ -512,21 +510,12 @@ namespace CrocoKit_Input {
             {
                 now_state = enRocker.Left;
             } else {  // 100<= y <= 700
-            	   if (z == 0)
-           						now_state = enRocker.Press;
            			 //OTHERS: enRocker.NoState
           	}
           
         }
         
-        
-        
-        
-
-        if (now_state == value)
-            return true;
-        else
-            return false;
+        return now_state == value;
     }
     
     //% blockId=CrocoKit_Input_Button block="Button|pin %pin|value %value"
