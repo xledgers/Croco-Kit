@@ -350,23 +350,23 @@ namespace CrocoKit_Input {
         //% blockId="NoState" block="无"
         NoState = 0,
         //% blockId="Up" block="上"
-        Up,
+        Up,//1
         //% blockId="Down" block="下"
-        Down,
+        Down,//2
         //% blockId="Left" block="左"
-        Left,
+        Left,//3
         //% blockId="Right" block="右"
-        Right,
+        Right,//4
         //% blockId="UpLeft" block="上左"
-        UpLeft,
+        UpLeft = 13,
         //% blockId="UpRight" block="上右"
-        UpRight,
+        UpRight = 14,
         //% blockId="UpLeft" block="下左"
-        DownLeft,
+        DownLeft = 23,
         //% blockId="UpRight" block="下右"
-        DownRight,        
+        DownRight = 24,    
         //% blockId="Press" block="按下"
-        Press
+        Press = 99 
     }
 
     export enum enButton {
@@ -423,15 +423,56 @@ namespace CrocoKit_Input {
     //% blockGap=20
     //% color="#808080"
     export function Rocker2(pin1: AnalogPin, pin2: AnalogPin, pin3: DigitalPin, value: enRocker): boolean {
+				pins.setPull(pin3, PinPullMode.PullUp);
+        let z = pins.digitalReadPin(pin3);
+        
+				if (z == 0) {
+           	now_state = enRocker.Press;
+            
+            if (now_state == value)
+            	return true;
+        		else
+            	return false;
+        }
+            	
         let x = pins.analogReadPin(pin1);
         let y = pins.analogReadPin(pin2);
         
-				pins.setPull(pin3, PinPullMode.PullUp);
- 
-        let z = pins.digitalReadPin(pin3);
+        
+        let x_state = enRocker.NoState;
+        let y_state = enRocker.NoState;
         let now_state = enRocker.NoState;
 
-        if (x < 100) // 上
+         
+
+        if (x < 100) // 左
+        {
+            x_state = enRocker.Left;
+        }
+        else if (x > 700) //右
+        {
+            x_state = enRocker.Right;
+        }
+
+        
+        if (y < 100) //下
+        {
+           y_state = enRocker.Down;
+        }
+        else if (y > 700) //上
+        {
+           y_state = enRocker.Up;
+        }
+        
+        
+        if  x_state + y_state < 4 {
+        	now_statue =  x_state + y_state;
+        } else {
+        	now_statue =  x_state *10 + y_state;
+        }
+        
+        
+     /*   if (x < 100) // 上
         {
 
 						if (y < 100) //右
@@ -475,6 +516,10 @@ namespace CrocoKit_Input {
           	}
           
         }
+        
+        */
+        
+        
 
         if (now_state == value)
             return true;
