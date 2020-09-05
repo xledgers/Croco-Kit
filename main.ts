@@ -425,6 +425,9 @@ namespace CrocoKit_Input {
     export function Rocker2(pin1: AnalogPin, pin2: AnalogPin, pin3: DigitalPin, value: enRocker): boolean {
         let x = pins.analogReadPin(pin1);
         let y = pins.analogReadPin(pin2);
+        
+				pins.setPull(pin3, PinPullMode.PullUp);
+ 
         let z = pins.digitalReadPin(pin3);
         let now_state = enRocker.NoState;
 
@@ -443,7 +446,7 @@ namespace CrocoKit_Input {
             		now_state = enRocker.Up;
 
         }
-        else if (x > 700) //
+        else if (x > 700) //下
         {
 						if (y < 100) //右
             {
@@ -456,19 +459,23 @@ namespace CrocoKit_Input {
             else
             		now_state = enRocker.Down;
         }
-        else  // 左右
+        else  // 左右 100<= x <= 700 
         {
-            if (y < 300) //右
+            if (y < 100) //右
             {
                 now_state = enRocker.Right;
             }
             else if (y > 700) //左
             {
                 now_state = enRocker.Left;
-            }
+            } else {  // 100<= y <= 700
+            	   if (z == 0)
+           						now_state = enRocker.Press;
+           			 //OTHERS: enRocker.NoState
+          	}
+          }
         }
-        if (z == 1)
-            now_state = enRocker.Press;
+
         if (now_state == value)
             return true;
         else

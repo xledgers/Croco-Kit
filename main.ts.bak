@@ -458,7 +458,7 @@ namespace CrocoKit_Input {
         }
         else  // 左右
         {
-            if (y < 100) //右
+            if (y < 300) //右
             {
                 now_state = enRocker.Right;
             }
