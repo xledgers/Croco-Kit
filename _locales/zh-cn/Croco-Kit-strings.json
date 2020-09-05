@@ -62,6 +62,11 @@
     "CrocoKit_Input.enRocker.Down|block": "下",
     "CrocoKit_Input.enRocker.Left|block": "左",
     "CrocoKit_Input.enRocker.Right|block": "右",
+    "CrocoKit_Input.enRocker.UpLeft|block": "上左",
+    "CrocoKit_Input.enRocker.DownLeft|block": "下左",
+    "CrocoKit_Input.enRocker.UpRight|block": "上右",
+    "CrocoKit_Input.enRocker.DownRight|block": "下右",   
+    "CrocoKit_Input.enRocker.Press|block": "按下",     
     "CrocoKit_Input.enButton.Press|block": "按下",
     "CrocoKit_Input.enButton.Realse|block": "松开",
 

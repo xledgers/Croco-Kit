@@ -359,9 +359,9 @@ namespace CrocoKit_Input {
         Right,
         //% blockId="UpLeft" block="左上"
         UpLeft,
-        //% blockId="UpRight" block="左下"
-        UpRight,        
-        //% blockId="UpLeft" block="右上"
+        //% blockId="UpRight" block="右上"
+        UpRight,
+        //% blockId="UpLeft" block="左下"
         DownLeft,
         //% blockId="UpRight" block="右下"
         DownRight,        
@@ -422,10 +422,10 @@ namespace CrocoKit_Input {
     //% weight=99
     //% blockGap=20
     //% color="#808080"
-    export function Rocker2(pin1: AnalogPin, pin2: AnalogPin, pin3: AnalogPin, value: enRocker): boolean {
+    export function Rocker2(pin1: AnalogPin, pin2: AnalogPin, pin3: DigitalPin, value: enRocker): boolean {
         let x = pins.analogReadPin(pin1);
         let y = pins.analogReadPin(pin2);
-        let z = pins.analogReadPin(pin3);
+        let z = pins.digitalReadPin(pin3);
         let now_state = enRocker.NoState;
 
         if (x < 100) // 上
