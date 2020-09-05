@@ -467,7 +467,7 @@ namespace CrocoKit_Input {
                 now_state = enRocker.Left;
             }
         }
-        if (z == 0)
+        if (z == 1)
             now_state = enRocker.Press;
         if (now_state == value)
             return true;
