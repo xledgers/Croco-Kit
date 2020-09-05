@@ -503,7 +503,7 @@ namespace CrocoKit_Input {
         }
         else  // 左右 100<= x <= 700 
         {
-            if (y < 100) //右
+            if (y < 500) //右
             {
                 now_state = enRocker.Right;
             }
