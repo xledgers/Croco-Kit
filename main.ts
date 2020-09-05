@@ -440,7 +440,7 @@ namespace CrocoKit_Input {
         let y = pins.analogReadPin(pin2);
         
         
-        let x_state = enRocker.NoState;
+/*        let x_state = enRocker.NoState;
         let y_state = enRocker.NoState;
 
 
@@ -471,9 +471,9 @@ namespace CrocoKit_Input {
         } else {
         	now_state =  x_state *10 + y_state;
         }
+  */      
         
-        
-     /*   if (x < 100) // 上
+        if (x < 100) // 上
         {
 
 						if (y < 100) //右
@@ -518,7 +518,7 @@ namespace CrocoKit_Input {
           
         }
         
-        */
+        
         
         
 
