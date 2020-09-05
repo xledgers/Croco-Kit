@@ -350,23 +350,23 @@ namespace CrocoKit_Input {
         //% blockId="NoState" block="无"
         NoState = 0,
         //% blockId="Up" block="上"
-        Up,
+        Up,//1
         //% blockId="Down" block="下"
-        Down,
+        Down,//2
         //% blockId="Left" block="左"
-        Left,
+        Left,//3
         //% blockId="Right" block="右"
-        Right,
+        Right,//4
         //% blockId="UpLeft" block="上左"
-        UpLeft,
+        UpLeft = 13,
         //% blockId="UpRight" block="上右"
-        UpRight,
+        UpRight = 14,
         //% blockId="UpLeft" block="下左"
-        DownLeft,
+        DownLeft = 23,
         //% blockId="UpRight" block="下右"
-        DownRight,        
+        DownRight = 24,    
         //% blockId="Press" block="按下"
-        Press
+        Press = 99 
     }
 
     export enum enButton {
@@ -465,7 +465,11 @@ namespace CrocoKit_Input {
         }
         
         
-        if  x_state == enRocker.
+        if  x_state + y_state < 4 {
+        	now_statue =  x_state + y_state;
+        } else {
+        	now_statue =  x_state *10 + y_state;
+        }
         
         
      /*   if (x < 100) // 上
