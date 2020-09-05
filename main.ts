@@ -423,6 +423,7 @@ namespace CrocoKit_Input {
     //% blockGap=20
     //% color="#808080"
     export function Rocker2(pin1: AnalogPin, pin2: AnalogPin, pin3: DigitalPin, value: enRocker): boolean {
+    	  let now_state = enRocker.NoState;
 				pins.setPull(pin3, PinPullMode.PullUp);
         let z = pins.digitalReadPin(pin3);
         
@@ -441,7 +442,7 @@ namespace CrocoKit_Input {
         
         let x_state = enRocker.NoState;
         let y_state = enRocker.NoState;
-        let now_state = enRocker.NoState;
+
 
          
 
