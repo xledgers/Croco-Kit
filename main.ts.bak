@@ -425,7 +425,7 @@ namespace CrocoKit_Input {
     export function Rocker2(pin1: AnalogPin, pin2: AnalogPin, pin3: DigitalPin, value: enRocker): boolean {
         let x = pins.analogReadPin(pin1);
         let y = pins.analogReadPin(pin2);
-        let z = pins.analogReadPin(pin3);
+        let z = pins.digitalReadPin(pin3);
         let now_state = enRocker.NoState;
 
         if (x < 100) // 上
