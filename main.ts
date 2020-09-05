@@ -347,7 +347,7 @@ namespace CrocoKit_Display {
 //% color="#808080" weight=23 icon="\uf11c"
 namespace CrocoKit_Input {
     export enum enRocker {
-        //% blockId="Nostate" block="无"
+        //% blockId="NoState" block="无"
         NoState = 0,
         //% blockId="Up" block="上"
         Up,
@@ -357,13 +357,13 @@ namespace CrocoKit_Input {
         Left,
         //% blockId="Right" block="右"
         Right,
-        //% blockId="UpLeft" block="左上"
+        //% blockId="UpLeft" block="上左"
         UpLeft,
-        //% blockId="UpRight" block="右上"
+        //% blockId="UpRight" block="上右"
         UpRight,
-        //% blockId="UpLeft" block="左下"
+        //% blockId="UpLeft" block="下左"
         DownLeft,
-        //% blockId="UpRight" block="右下"
+        //% blockId="UpRight" block="下右"
         DownRight,        
         //% blockId="Press" block="按下"
         Press
