@@ -465,7 +465,7 @@ namespace CrocoKit_Input {
         }
         
         
-        if  x_state + y_state < 4 {
+        if  (x_state + y_state < 4) {
         	now_state =  x_state + y_state;
         } else {
         	now_state =  x_state *10 + y_state;
