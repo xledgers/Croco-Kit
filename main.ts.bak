@@ -438,78 +438,45 @@ namespace CrocoKit_Input {
             	
         let x = pins.analogReadPin(pin1);
         let y = pins.analogReadPin(pin2);
+             
         
-        
-/*        let x_state = enRocker.NoState;
-        let y_state = enRocker.NoState;
-
-
-         
-
         if (x < 100) // 左
         {
-            x_state = enRocker.Left;
-        }
-        else if (x > 700) //右
-        {
-            x_state = enRocker.Right;
-        }
 
-        
-        if (y < 100) //下
-        {
-           y_state = enRocker.Down;
-        }
-        else if (y > 700) //上
-        {
-           y_state = enRocker.Up;
-        }
-        
-        
-        if  (x_state + y_state < 4) {
-        	now_state =  x_state + y_state;
-        } else {
-        	now_state =  x_state *10 + y_state;
-        }
-  */      
-        
-        if (x < 100) // 上
-        {
-
-						if (y < 100) //右
+						if (y < 100) //下
             {
-                now_state = enRocker.UpRight;
+                now_state = enRocker.DownLeft;
             }
-            else if (y > 700) //左
+            else if (y > 700) //上
             {
                 now_state = enRocker.UpLeft;
             }
             else
-            		now_state = enRocker.Up;
+            		now_state = enRocker.Left;
 
         }
-        else if (x > 700) //下
+        else if (x > 700) //右
         {
-						if (y < 100) //右
+						if (y < 100) //下
             {
                 now_state = enRocker.DownRight;
             }
-            else if (y > 700) //左
+            else if (y > 700) //上
             {
-                now_state = enRocker.DownLeft;
+                now_state = enRocker.UpRight;
             }
             else
-            		now_state = enRocker.Down;
+            		now_state = enRocker.Right;
         }
         else  // 左右 100<= x <= 700 
         {
-            if (y < 500) //右
+            if (y < 100) //下
             {
-                now_state = enRocker.Right;
+                now_state = enRocker.Down;
             }
-            else if (y > 700) //左
+            else if (y > 700) //上
             {
-                now_state = enRocker.Left;
+                now_state = enRocker.Up;
             } else {  // 100<= y <= 700
             	   if (z == 0)
            						now_state = enRocker.Press;
